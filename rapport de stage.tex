@@ -1,0 +1,162 @@
+\documentclass[a4paper, 12pt]{report}
+
+% entête
+\usepackage[intlimits]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage{pifont}
+\definecolor{lightgray}{gray}{0.5}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{here}
+\usepackage{graphicx}
+\usepackage[french]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tikz} 
+% nom
+\author{Jianpeng XU}
+\usepackage{fourier}	
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{fancyhdr}
+ \usepackage{enumitem}
+% entête
+
+\pagestyle{fancy}
+
+
+%raccourcis
+\newcommand{\diff}{\mathop{}\mathopen{}d}
+\newcommand{\dphi}{\diff \phi}
+\newcommand{\du}{\diff u}
+\newcommand{\dv}{\diff v}
+\newcommand{\alal}
+{\linebreak
+\linebreak
+\linebreak
+\linebreak}
+
+\newcommand{\fig}[3]{
+\begin{figure}[!h]
+\centering
+\includegraphics[scale={#1}]{{#2}}
+\caption{{#3}}
+\end{figure}
+}
+
+\lstset{language=C++,keywordstyle=\color{orange}}
+
+\renewcommand{\headrule}{{\color{lightgray}\rule{\textwidth}{0.5pt}}}
+\fancyhead[]{}
+\fancyhead[R]{\textcolor{lightgray}{\leftmark}}
+
+\makeatletter
+\def\footrule{{
+  \vskip-\footruleskip\vskip-\footrulewidth
+  \color{\footrulecolor}
+  \hrule\@width\headwidth\@height
+  \footrulewidth\vskip\footruleskip
+}}
+
+
+
+%  bas des pages
+\makeatother
+\renewcommand{\footrulewidth}{0.5pt}
+\newcommand{\footrulecolor}{lightgray}
+\fancyfoot[C]{\textcolor{lightgray}{Rapport de stage de Jianpeng XU - Année universitaire 2016/2017}}
+\fancyfoot[L]{}
+\fancyfoot[R]{\textcolor{lightgray}{\thepage}}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\begin{document}
+\makeatletter
+\let\ps@plain\ps@fancy
+\makeatother
+\begin{center}
+\LARGE
+
+
+
+% ------------------ Page de garde ----------------------
+
+
+
+
+\begin{flushright}
+\includegraphics[scale=0.85]{psud.jpg} 
+\end{flushright}
+
+\huge
+\textbf{Rapport de Stage de fin d'étude } 
+\linebreak
+\normalsize
+\alal
+\huge
+
+%titre
+\textbf{Sondeur de canal MIMO à bipolarisation}
+\\Effectué dans le laboratoire SATIE
+\linebreak
+\linebreak
+\includegraphics[scale=0.8]{SATIE.jpg}
+\includegraphics[scale=0.35]{logo_ensc_bleu.png} 
+\alal
+\vfill
+\large
+Encadré par Mme Isabelle VIN et M Jean-pierre BARBOT\\
+Tuteur académique : M Hugues MOUNIER\\
+Jianpeng XU\\
+mars 2017 - Septembre 2017
+\alal
+
+\end{center}
+\newpage
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+\listoffigures
+%\listoftables
+\newpage
+
+
+%------------- Introduction -------------
+\fancyhead[]{}
+\fancyhead[R]{\textcolor{lightgray}{Introdution}}
+\begin{Huge}
+\textbf{Résumé}:\\
+\end{Huge}
+\break
+
+
+Face à l'expansion de l'utilisateur du systèmes de communications mobile, la rapidité et le débit est un facteur clé pour maintenir la compétitivité des fournisseur de d'accès internet 4G. Le signal transmis subit des perturbations entre la base et le mobile. D'où l'importance de connaitre le canal de propagation entre l'émetteur et le récepteur pour optimiser le signal à la réception. Dans cet optique je suis en charge tout d'abord de remettre en marche un sondeur de canal qui actuellement n'est pas en état de fonctionnement. Finalement concevoir une version MIMO de la base qui permet d'augmenter le débit en fonctionne de nombre d'antenne utilisé. Et aussi de mettre à jour la base tant au niveau matérielle tant au niveau logicielle.
+\\
+\alal
+\alal
+
+
+%-------------- Remerciment ------------------
+\begin{Huge}
+\textbf{Remerciements}:\\
+\end{Huge}
+\break
+
+Je tiens tout d'abord à remercier infiniment madame Isabelle VIN et monsieur Jean-pierre BARBOT pour m'avoir offert la possibilité de faire ce stage, de m'avoir très bien accueilli et de m'avoir aidé et conseillé tout au long de ce stage.\\
+Un très grand remerciement à l'ensemble des personnes qui m'ont accueillis au sein du laboratoire SATIE.
+
+
+
+\newpage
+\fancyhead[R]{\textcolor{lightgray}{\leftmark}}
+\include{reparation_du_sondeur}
+\newpage
+\include{C_Sondeur}
+\newpage
+\include{carte_d_acquisition}
+\newpage
+\end{document}

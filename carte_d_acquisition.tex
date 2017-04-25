@@ -1,0 +1,21 @@
+\subsubsection{Carte d'acquisition}
+
+Les entrées de la carte est protection contre une surtension. Le front-end fournie une protection qui vas coupler automatiquement l'impédance de 50 $\Omega$ à 1 M$\Omega$ si le signal dépasse de ±5 V DC.
+\fig{0.7}{protectionca.png}{La tension maximale protégée par la carte}
+
+Les caractéristiques de la carte d'acquisition.
+\fig{0.6}{temps_de_monte.png}{Le temps de monté et la bande passante de la carte}
+\fig{0.43}{vitesse_acqui.png}{La vitesse d'acquisition de la carte}
+
+\paragraph{Trigger Externe}
+
+La carte d'acquisition permet aux utilisateur de choisir la pleine échelle(Full scale en anglais) du trigger external à partie de ces ensembles [0.5, 1, 2, 5V]. Ensuite le niveau trigger externe peut être mis entre $\pm$0.5* FS.
+Lorsque la carte est en cours d'acquisition de donnée, le port TR OUT fournie une impulsion. Quand on arrête l'acquisition l'impulsion s'arrête.  
+
+\paragraph{Horloge externe}
+%Clock in
+Deux modes de fonctionnent peut être choisis: Mode fréquence d'entrée continue qui fonctionne sous une fréquence entre 20 MHz and 2 GHz
+Mode start\textbackslash stop fonctionne avec une fréquence d'entrée moins de 1GHz. Sous une tension d'au moins de 1V d'amplitude crête à crête.
+Avant de lancer l'opération d'acquisition de donnée, il est intéressant de réaliser d'abord une auto-calibration
+La transmission des données est réalisé par la communication DMA avec un débit de 100 MB/s.
+%The continuous external clock mode (clockType = 1)

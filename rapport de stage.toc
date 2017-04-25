@@ -1,0 +1,20 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}La remise en conformit\IeC {\'e} du Sondeur de canal}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Caract\IeC {\'e}risation du canal de propagation}{5}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Canal de propagation}{6}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Effets introduits par le canal de propagation}{7}{subsection.1.1.2}
+\contentsline {subsubsection}{Variabilit\IeC {\'e} spatiale}{7}{section*.3}
+\contentsline {subsubsection}{S\IeC {\'e}lectivit\IeC {\'e} fr\IeC {\'e}quentielle}{7}{section*.4}
+\contentsline {subsection}{\numberline {1.1.3}Mesure du canal de propagation}{8}{subsection.1.1.3}
+\contentsline {subsubsection}{Mod\IeC {\`e}le du canal de propagation}{8}{section*.5}
+\contentsline {subsubsection}{M\IeC {\'e}thode choisie pour r\IeC {\'e}aliser la mesure}{9}{section*.6}
+\contentsline {section}{\numberline {1.2}Etat de l'art de la version actuelle du sondeur}{10}{section.1.2}
+\contentsline {section}{\numberline {1.3}\IeC {\'E}tude mat\IeC {\'e}rielle du sondeur}{13}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Cahier de charge du sondeur}{13}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}\IeC {\'E}metteur du sondeur}{13}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}R\IeC {\'e}cepteur du sondeur}{14}{subsection.1.3.3}
+\contentsline {subsubsection}{Partie conversion analogique-num\IeC {\'e}rique}{14}{section*.7}
+\contentsline {subsubsection}{Partie acquisition num\IeC {\'e}rique}{15}{section*.8}
+\contentsline {subsubsection}{Carte d'acquisition}{16}{section*.9}
+\contentsline {paragraph}{Trigger Externe}{16}{section*.10}
+\contentsline {paragraph}{Horloge externe}{16}{section*.11}

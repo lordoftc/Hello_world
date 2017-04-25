@@ -1,0 +1,70 @@
+\section{Étude matérielle du sondeur}
+
+\subsection{Cahier de charge du sondeur}
+Ce nouvel équipement doit permettre la mesure du canal de propagation dans la gamme
+de fréquences 1-3 GHz, gamme dans laquelle opérera la troisième génération de systèmes radiomobiles.
+
+Cet appareil doit permettre la mesure des effets du canal de propagation a l'intérieur des bâtiments et doit pouvoir fonctionner avec une alimentation électrique autonome. De ce fait, il devra être éminemment plus compact et moins gourmand que le sondeur du projet MARATHON, dont les différents éléments remplissaient une camionnette. Une diminution d’un facteur dix de ces deux paramètres est souhaitable.
+
+Ensuite, bien que cet équipement soit en premier lieu dédié aux mesures dans les
+bâtiments, il a été conçu pour pouvoir désadapter aux mesures en contextes macro et micro- cellulaire. De ce fait il doit permettre l’acquisition de réponses impulsionnelles ayant une très bonne résolution temporelle, afin de distinguer des échos très rapprochés comme c'est le cas dans les bâtiments. Il doit également permettre l’acquisition de réponses impulsionnelles assez longues dans des environnements plus vastes.
+
+Cet équipement doit permettre l’analyse des décalages en fréquences Doppler, ainsi que de certains phénomènes pour lesquels la connaissance de la phase est primordiale.
+L’identification que l’instrument réalise doit donc être celle des réponses impulsionnelles complexes du canal de propagation. 
+
+\subsection{Émetteur du sondeur}
+
+L'émetteur du sondeur produit un signal modulé par changement de phase binaire de fréquence centrale 2GHz.
+\fig{0.36}{emetteur.png}{Vue synoptique de l'émetteur}\\
+
+\begin{enumerate}
+\item Générateur de séquence aléatoire est fait dans un module dans le PLA en utilisant l'algorithme détaillé dans cette section.\pageref{gene code pseudo}
+\item Mélangeur de signaux HF coupler avec le O.L et générateur de séquence pour réaliser une modulation par changement de phase binaire(BPSK). La puissance du signal de sortie est de l'ordre de grandeur de 1W.
+\item Amplificateur Radio Fréquence amplifie la puissance jusqu'à 30W.
+\item Antennes d'émissions
+\item Horloge d'atome Rubidium délivre une fréquence de 5MHz,sa précision plus important que l'horloge à quartz.
+\item Oscillateur O.L.1 synthèse l'horloge du générateur de séquence (50 MHz,25 MHz et 12.5 MHz) et O.L.2 pour générer la fréquence de la porteuse qui peut être réglé de 900MHz à 2,5GHz.
+
+La carte d'acquisition peut fonctionner jusqu'à la fréquence de 100MHz. Afin de respecter le théorème de shannon la fréquence utilisée est de 50 MHz pour générer la séquence aléatoire avec un débit de 50Mbit/s. 
+\end{enumerate}
+La consommation global estimé de l'émetteur est de l'ordre de grandeur de 500W.
+%http://www.oscilent.com/esupport/TechSupport/ReviewPapers/IntroQuartz/vigcomp.htm
+\subsection{Récepteur du sondeur}
+
+Le récepteur est la partie de la chaine d'instrumentation la plus complexe. Actuellement il est constitué de deux partie, une partie réalise la fonction de conversion sur le signal reçu et une deuxième partie fait l'acquisition numérique du signal.
+
+\fig{0.47}{recepteur.png}{Vue synoptique du récepteur}
+\subsubsection{Partie conversion analogique-numérique}
+
+La partie conversion permet de filtrer le signal reçu et amplifie la puissance du signal et ramène la fréquence centrale à 280MHz pour démoduler et faire une conversion analogique-numérique.
+Cette partie est composée des éléments suivants:
+\begin{enumerate}
+\item Filtre passe-bande qui permet de récupérer les fréquences au tour de la fréquence porteuse et éliminer le reste
+\item Amplificateur R.F permet d'amplifier la puissance du signal, il est conçu de façon à obtenir le meilleur rapport signal/bruit possible.
+\item Atténuateur relié avec CAG pour protéger les éléments sensibles du de la partie acquisition.
+\item CAG contrôle automatiquement le niveau d'amplitude des signaux reçus , pour que la conversion analogique-numérique se fasse sans dégradation. Il faut que le niveau de ces signaux doit être quasiment constant. Un interrupteur est inséré dans l'amplificateur, lorsque le niveau est trop important il coupe la partie chaine d'acquisition du circuit. 
+\item Mélangeur est la pièce maîtresse du récepteur superhétérodyne. On applique à ses entrées les signaux de fréquences $F_{o}$ provenant de l'antenne, et $F_{OL}$ provenant de l'oscillateur local 8. Ce dernier produit un signal, modulé en amplitude ou fréquence, de fréquence $ F_{LO}$ proche de $ F_{o}$. On retrouve en sortie du mélangeur des signaux non seulement à $ F_{o}$ et $ F_{OL}$ mais aussi à $ F_{o}+F_{LO}$ et $ |F_{o}-F_{LO}|$. Ceci a pour but de décaler la fréquence tout en gardant l'allure du spectre.
+\item Filtre FI permet de conserver uniquement la fréquence $ |F_{o}-F_{LO}|$. On obtiens une nouvelle fréquence centrale appelé la fréquence intermédiaire. Il y a également un filtre et un démodulateur pour démoduler le signal reçu.
+\item La commande permet de contrôler un commutateur reliant soit l'entrée sur 1 ou 2 antennes soit l'entrée à une source de puissance étalon pour étalonner la chaîne de mesure. 
+\item Oscillateur à quartz asservi a des caractéristiques proche de l'oscillateur à rubidium. De plus il a particularité de pouvoir être décalé en fréquence de l'ordre $1.10^{-11}$. Cette fonctionnalité permet de synchroniser la fréquence d'oscillateur de l'émetteur avec celle du récepteur avec une erreur relative de $1.10^{-11}$. 
+\item Oscillateur local génère une fréquence qui est utilisé par le mélangeur pour transposer la fréquence centrale à 280 MHz.
+
+
+\end{enumerate}
+
+
+\subsubsection{Partie acquisition numérique}
+
+Un mini Ordinateur permet de régler les paramètre du récepteur, tel que la sélections des antennes, réglage de l'oscillateur,rythme d'échantillonnage de I et Q,longueur de la séquence de code pseudo-aléatoire.
+Deux carte d'acquisition sont utilisé pour réaliser la numérisation rapide pour les voies en phase et en quadrature. Et des cartes d'acquisitions d'information de C.A.G 
+Le signal échantillonné par les antennes est enregistré dans un disque dure externe ainsi que les données sur imperfection du démodulateur et sera traité après les mesures par une station de travaille (SUN ou VAX 3400). Aucun calcul n'est fait dans cette partie, tous les traitement sont fait dans la partie de la chaine de traitement.
+Ces donnés sont enregistré dans un fichier composé de 5 bloc contenants les informations suivantes:
+\begin{itemize}[label=\ding{93}, font=\large \color{lightgray}]
+\item Paramètre de la mesure
+\item Les mesures code acquis au cours de l'échantillonnage
+\item Distance ou localisation
+\item Paramètre C.A.G
+\item Échantillons "bruts" des acquisition des voies en phase et en quadrature.
+\end{itemize}
+Le micro-ordinateur calcule après acquisition de donnés la réponse impulsionnelle ou le spectre de la séquence mesurée.
+Un mode de test en temps réel permet de visualiser les courbes en temps réel et affiche les diverses informations utiles pour l'état actuelle du récepteur.

@@ -1,0 +1,40 @@
+\chapter{Méthode de caractérisation}
+Ce chapitre est consacré aux différentes méthodes de caractérisation de matériaux en déterminant leur permittivité relative. Parmi ces méthodes, on évoquera la méthode classique qui est celle de la méthode impulsionnelle (en anglais Time Domain Reflectometry, ou simplement TDR)\cite{ref5},\cite{ref7} mais également ce que l'on appelle la méthode nucléaire ou celle qui sera utilisé dans nos travaux qui est la méthode spectroscopique large bande\cite{ref6},\cite{ref10}.\\
+On définit un matériau dispersif comme étant un matériau dont la permittivité relative varie avec la fréquence, incluant ainsi des matériaux comme la bentonite\cite{ref8},\cite{ref9} ou l'argilite. Ces méthodes de caractérisation sont intéressantes de ce point de vue car elles rendent compte des variations de permittivité en fonction de la fréquence.\\
+\section{Méthode impulsionnelle}
+La méthode impulsionnelle\cite{ref7} est une méthode de caractérisation basée sur le principe suivant:\\
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{methode_TDR.png}
+\caption{Méthode TDR\cite{ref7}}
+\end{figure}
+Le principe consiste à envoyer, grâce à un générateur d'impulsions relié à une ligne de transmission, une impulsion dans un matériau.
+Cette méthode repose sur l'exploitation du contraste entre la permittivité du matériau et celle de l'eau. Pour remonter à la permittivité du matériau, une mesure de la vitesse de propagation de l'impulsion est faite et est utilisée dans l'expression suivante:\\
+\begin{align*}
+v=\frac{c}{\sqrt{\varepsilon_r}}
+\end{align*}
+Avec v la vitesse de propagation de l'impulsion(m/s), c la célérité (m/s) et $\varepsilon_r$ la permittivité du milieu.
+En pratique on mesure le temps de propagation de l'impulsion entre le début et la fin de la sonde. On applique alors l'équation suivante:\\
+\begin{align*}
+\varepsilon_r=(\frac{c\Delta t}{L})^2
+\end{align*}
+Avec L la longueur de la sonde et $\Delta t$ le temps de propagation de l'impulsion.\\
+La permittivité étant connu, on remonte alors à la teneur en eau grâce à cette relation proposée dans les années 80 par Topp:\\
+\begin{align*}
+\theta=-5.3.10^{-2}+2.92.10^{-2}\varepsilon_r-5.5.10^{-2}\varepsilon_r^2+4.3.10^{-6}\varepsilon_r^3
+\end{align*}
+Cette méthode présente l'avantage d'être très précis. En effet l'incertitude de mesure est inférieure à 2$\%$ et a une bonne résolution spatiale et temporelle.Mais deux inconvénients majeurs résident dans cette méthode: le premier est lié au prix élevé des appareils utilisant cette méthode tandis que le seconde est le fait que cette méthode donne une permittivité moyenne et non pas en fonction de la fréquence.
+\section{Méthode spectroscopique}
+La méthode spectroscopique a été développé dans l'idée de palier les inconvénients de la méthode impulsionnelle. Cette méthode, qui est censée être économique, permet alors de caractériser les matériaux dispersifs comme ceux qui nous intéresse sur une large bande de fréquence (100 MHz-1000 MHz).\\
+Cette méthode est basée sur l'envoi, via une sonde, d'une onde électromagnétique qui va se réfléchir sur le matériau. L'onde réfléchie est alors traitée afin de remonter aux paramètres diélectriques (permittivité, conductivité) via le calcul de l'admittance.\\
+Les différentes aspects(hypothèses, calculs, courbes,...) de cette méthode spectroscopique large bande seront développés tout au long de ce rapport avec différentes références bibliographiques.
+\section{Méthode nucléaire}
+La méthode nucléaire est basée sur l'utilisation de humidimétre neutronique. la mesure est effectuée grâce à la propriété qu'ont les neutrons rapides à être ralentis de préférence par les atomes d'hydrogènes, qui sont inclus dans les molécules d'eau et donc plus les neutrons sont ralentis plus il y a des molécules d'eau et donc plus le matériau est humide.\\
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.7]{humidimetre_neutron.png}
+\caption{Humidimètre à neutronique}
+\end{figure}
+Le risque lié à l'émission de radiation nucléaire ainsi que le cout élevé d'un humidimétre, sans parler de l'impossibilité d'avoir des informations sur le matériau sous test en fonction de la fréquence, limitent l'utilisation de cette méthode.\\
+\break
+Il existe d'autres méthodes de caractérisation diélectrique basés sur d'autres principes physiques\cite{ref14},\cite{ref11}( résistivité électrique, tension d'eau,...).
